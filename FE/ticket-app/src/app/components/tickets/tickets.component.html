@@ -1,0 +1,93 @@
+<h2>פתיחת פנייה</h2>
+
+<div class="ticket-form-container">
+  <h2>פתיחת פנייה חדשה</h2>
+  <form (ngSubmit)="addTicket()" #ticketForm="ngForm">
+    <div class="form-group">
+      <label for="userId">תעודת זהות</label>
+      <input
+        id="userId"
+        type="number"
+        min="0"
+        max="999999999"
+        maxlength="9"
+        placeholder="User ID"
+        [(ngModel)]="newTicket.userId"
+        name="userId"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="subject">נושא</label>
+      <input
+        id="subject"
+        type="text"
+        placeholder="Subject"
+        [(ngModel)]="newTicket.subject"
+        name="subject"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">תיאור</label>
+      <textarea
+        id="description"
+        placeholder="Description"
+        [(ngModel)]="newTicket.description"
+        name="description"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" [disabled]="!ticketForm.form.valid">שלח</button>
+  </form>
+</div>
+
+<hr>
+
+<h2>רשימת פניות</h2>
+
+<div class="filter-bar">
+  <label for="statusFilter">סינון לפי סטטוס:</label>
+
+  <select
+    id="statusFilter"
+    [(ngModel)]="filterStatus"
+    (change)="applyFilter()">
+
+    <option value="all">הכל</option>
+    <option value="open">פתוחות</option>
+    <option value="closed">סגורות</option>
+
+  </select>
+</div>
+
+<div class="tickets-container">
+  <table class="tickets-table">
+    <thead>
+      <tr>
+        <th>נושא</th>
+        <th>תיאור</th>
+        <th>סטטוס</th>
+        <th>פעולות</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of filteredTickets; let i = index"
+          [class.even]="i % 2 === 0"
+          [class.odd]="i % 2 !== 0">
+        <td>{{ ticket.subject }}</td>
+        <td>{{ ticket.description }}</td>
+        <td>{{ ticket.isClosed ? 'סגורה' : 'פתוחה' }}</td>
+        <td>
+          <button *ngIf="!ticket.isClosed" (click)="closeTicket(ticket.ticketId)">
+            סגור פנייה
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

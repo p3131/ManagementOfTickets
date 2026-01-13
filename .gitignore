@@ -1,0 +1,33 @@
+
+# -------------------
+# Backend (.NET)
+# -------------------
+
+# Build folders
+BE/API/bin/
+BE/API/obj/
+
+# User-specific files
+*.user
+*.suo
+*.vs/
+
+
+
+# -------------------
+# Frontend (Angular)
+# -------------------
+
+# Node modules
+FE/ticket-app/node_modules/
+FE/ticket-app/.angular/
+FE/ticket-app/.log/
+
+# Angular build output
+FE/ticket-app/dist/
+FE/ticket-app/out-tsc/
+
+# Environment files with secrets
+FE/ticket-app/src/environments/*.ts
+
+
