@@ -1,9 +1,6 @@
-# ManagementOfTickets
-
-
 # Management Of Tickets
 
-## טכנולוגיות
+## Technologies
 - Node.js 22+
 - .NET 8 Minimal API
 - Angular CLI 17
@@ -29,15 +26,15 @@ https://localhost:7078/swagger
 
 
 ### Backend Structure
-- Endpoints – responsible for handling HTTP requests  
-- Services – contain the business logic  
-- Models – define the domain entities (Ticket)
+- Endpoints ן¿½ responsible for handling HTTP requests  
+- Services ן¿½ contain the business logic  
+- Models ן¿½ define the domain entities (Ticket)
 
 
 ### API Endpoints:
-GET /tickets – Retrieve all tickets
-POST /tickets – Create a new ticket
-PUT /tickets/{id}/close – Close an existing ticket
+GET /tickets ן¿½ Retrieve all tickets
+POST /tickets ן¿½ Create a new ticket
+PUT /tickets/{id}/close ן¿½ Close an existing ticket
 
 ### Data Model
 ```csharp
@@ -48,6 +45,7 @@ public record Ticket(
     string Description,
     bool IsClosed
 );
+```
 
 ### Layer Separation Rationale
 Although the project currently uses in-memory storage (without a database),
@@ -81,7 +79,7 @@ http://localhost:4200
 Ensure the backend API is running before starting the frontend.
 
 ### Frontend Structure
-Components – Handle UI and user interactions (TicketsComponent).
-Services – Handle API calls and business logic (TicketService).
-Models – Define data structures (Ticket interface).
+Components ן¿½ Handle UI and user interactions (TicketsComponent).
+Services ן¿½ Handle API calls and business logic (TicketService).
+Models ן¿½ Define data structures (Ticket interface).
 
